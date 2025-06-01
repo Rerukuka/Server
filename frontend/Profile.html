@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="profile-title">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="profile-title">Profile - BtcAIworK</title>
+  <link rel="stylesheet" href="/static/css/style.css"> <!-- Исправлено -->
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script type="module" src="../scripts/firebase-config.js"></script>
+</head>
+<body>
+  <div class="bg-animated" id="hashWave"></div>
+  <nav>
+    <div class="nav-brand"><a href="./index.html" data-i18n="nav-index">BtcAIworK</a></div>
+    <div class="nav-links" id="nav-links">
+      <a href="./index.html" class="btn-nav" data-i18n="nav-index">Home</a>
+      <a href="./dashboard.html" class="btn-nav" data-i18n="nav-dashboard">Statistics</a>
+      <a href="./Tokens.html" class="btn-nav" data-i18n="nav-tokens">Buy Tokens</a>
+      <a href="./scripts.html" class="btn-nav" data-i18n="nav-scripts">Scripts</a>
+      <a href="./Connection.html" class="btn-nav" data-i18n="nav-connection">Contacts</a>
+      <a href="./Roadmap.html" class="btn-nav" data-i18n="nav-roadmap">Roadmap</a>
+      <a href="./staking.html" class="btn-nav" data-i18n="nav-staking">Staking</a>
+      <a href="./Login.html" class="btn-nav" data-i18n="nav-login">Login</a>
+      <a href="./Profile.html" class="btn-nav" data-i18n="nav-account">Account</a>
+    </div>
+    <div class="nav-controls">
+      <button id="lang-btn">RU</button>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 data-i18n="profile-title">Profile</h1>
+    <div class="account-card">
+      <h3 data-i18n="account-details">Account Details</h3>
+      <p><strong data-i18n="username-label">Username:</strong> <span id="username"></span></p>
+      <p><strong data-i18n="email-label">Email:</strong> <span id="email"></span></p>
+      <p><strong data-i18n="wallet-label">Wallet Address:</strong> <span id="wallet-address"></span></p>
+      <div class="wallet-edit">
+        <input type="text" id="new-wallet" data-i18n-placeholder="wallet-placeholder" placeholder="Enter new wallet address">
+        <button type="button" id="update-wallet" class="btn" data-i18n="update-wallet">Update Wallet</button>
+      </div>
+    </div>
+    <div class="account-card">
+      <h3 data-i18n="mining-settings">Mining Settings</h3>
+      <p><strong data-i18n="algorithm-label">AI Algorithm:</strong> <span id="ai-algorithm"></span></p>
+    </div>
+    <div class="account-card">
+      <h3 data-i18n="staking-details">Staking Details</h3>
+      <p><strong data-i18n="basic-tokens-label">Basic Staking Tokens:</strong> <span id="basic-tokens"></span></p>
+      <p><strong data-i18n="premium-tokens-label">Premium Staking Tokens:</strong> <span id="premium-tokens"></span></p>
+    </div>
+    <button type="button" id="logout-btn" class="btn" data-i18n="logout-button">Logout</button>
+  </div>
+  <footer>
+    <p data-i18n="footer-text">© 2025 BtcAIworK. All rights reserved.</p>
+  </footer>
+  <script type="module" src="./static/js/script.js"></script>
+  <script type="module" src="../scripts/profile.js"></script>
+</body>
+</html>

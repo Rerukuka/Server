@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="nav-connection">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Контакты | BtcAIworK</title>
+  <link rel="stylesheet" href="./static/css/style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    body.light-theme {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    body.dark-theme {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ffffff;
+      background-color: #1a1a1a;
+    }
+
+    .nav-brand a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .nav-links a, .nav-links button {
+      margin: 0 5px;
+      background: none;
+      border: 1px solid #ffffff;
+      padding: 5px 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #ffffff;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a.fw-bold {
+      font-weight: bold;
+      border-color: #00ff00;
+    }
+
+    main.container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #00ff00;
+    }
+
+    .intro-text {
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 40px;
+      color: #cccccc;
+    }
+
+    .connection-info, .contact-info, .mining-guide, .connection-stats {
+      margin: 30px 0;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #1a1a1a;
+    }
+
+    .connection-info h3, .contact-info h3, .mining-guide h3, .connection-stats h3 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      color: #00ff00;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ffffff;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #2a2a2a;
+      font-weight: bold;
+    }
+
+    table td {
+      background-color: #1a1a1a;
+    }
+
+    .status-online {
+      color: #28a745;
+    }
+
+    .status-offline {
+      color: #dc3545;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: #00ff00;
+      cursor: pointer;
+      padding: 0;
+      font-size: 0.9em;
+    }
+
+    .copy-btn:hover {
+      text-decoration: underline;
+    }
+
+    .mining-guide ol {
+      padding-left: 20px;
+    }
+
+    .mining-guide li {
+      margin: 10px 0;
+      line-height: 1.5;
+      color: #cccccc;
+    }
+
+    .connection-stats p {
+      margin: 5px 0;
+      color: #cccccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      border-top: 1px solid #ffffff;
+      margin-top: 40px;
+      color: #cccccc;
+    }
+  </style>
+</head>
+<body class="dark-theme">
+
+  <nav>
+    <div class="nav-brand">
+      <a href="index.html">BtcAIworK</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav-index">Главная</a>
+      <a href="dashboard.html" data-i18n="nav-dashboard">Статистика</a>
+      <a href="Tokens.html" data-i18n="nav-tokens">Купить токены</a>
+      <a href="Login.html" data-i18n="nav-staking">Вход</a>
+      <a href="Profile.html" data-i18n="nav-profile">Аккаунт</a>
+      <a href="scripts.html" data-i18n="nav-scripts">Скрипты</a>
+      <a href="Connection.html" data-i18n="nav-connection" class="fw-bold">Контакты</a>
+      <a href="Roadmap.html" data-i18n="nav-roadmap">Дорожная карта</a>
+      <button id="theme-toggle">🌓</button>
+      <button id="lang-btn">RU</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h2 data-i18n="connection-title">Контакты для Связи</h2>
+    <p class="intro-text" data-i18n="connection-intro">Мы здесь, чтобы помочь вам с любыми вопросами. Подключайтесь к нашему пулу и начинайте майнинг с BtcAIworK!</p>
+
+    <div class="connection-stats">
+      <h3 data-i18n="connection-stats-title">Статистика Подключений</h3>
+      <p><span data-i18n="connection-active-miners-label">Активных майнеров:</span> <span id="active-miners">125</span></p>
+      <p><span data-i18n="connection-last-update-label">Последнее обновление:</span> <span id="last-update">11:48 PM +05, 20.05.2025</span></p>
+    </div>
+
+    <div class="connection-info">
+      <h3 data-i18n="connection-servers-title">Серверы для Подключения</h3>
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="connection-table-region">Регион</th>
+            <th data-i18n="connection-table-address">Адрес Сервера</th>
+            <th data-i18n="connection-table-port">Порт</th>
+            <th data-i18n="connection-table-protocol">Протокол</th>
+            <th data-i18n="connection-table-status">Статус</th>
+          </tr>
+        </thead>
+        <tbody id="server-table-body">
+          <tr>
+            <td data-i18n="connection-region-europe">Европа</td>
+            <td>eu.btcaiwork.com <button class="copy-btn" onclick="copyToClipboard('eu.btcaiwork.com')">📋</button></td>
+            <td>3333</td>
+            <td>Stratum</td>
+            <td class="status-online" id="status-eu">Онлайн</td>
+          </tr>
+          <tr>
+            <td data-i18n="connection-region-america">Северная Америка</td>
+            <td>us.btcaiwork.com <button class="copy-btn" onclick="copyToClipboard('us.btcaiwork.com')">📋</button></td>
+            <td>3333</td>
+            <td>Stratum</td>
+            <td class="status-offline" id="status-us">Оффлайн</td>
+          </tr>
+          <tr>
+            <td data-i18n="connection-region-asia">Азия</td>
+            <td>asia.btcaiwork.com <button class="copy-btn" onclick="copyToClipboard('asia.btcaiwork.com')">📋</button></td>
+            <td>3333</td>
+            <td>Stratum</td>
+            <td class="status-online" id="status-asia">Онлайн</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mining-guide">
+      <h3 data-i18n="connection-guide-title">Как Подключиться к Пулу</h3>
+      <ol>
+        <li data-i18n="connection-guide-step1">Выберите сервер, ближайший к вашему региону, из таблицы выше.</li>
+        <li data-i18n="connection-guide-step2">Настройте ваше майнинг-оборудование (например, ASIC или GPU) с помощью адреса сервера и порта.</li>
+        <li data-i18n="connection-guide-step3">Используйте ваш кошелёк Bitcoin в качестве имени пользователя (без пароля, если не указано иное).</li>
+        <li data-i18n="connection-guide-step4">Пример команды для cgminer: <code>cgminer -o stratum+tcp://eu.btcaiwork.com:3333 -u YOUR_BTC_WALLET_ADDRESS</code></li>
+        <li data-i18n="connection-guide-step5">Запустите майнинг и отслеживайте статистику на странице <a href="dashboard.html">Статистика</a>.</li>
+      </ol>
+    </div>
+
+    <div class="contact-info">
+      <h3 data-i18n="connection-contact-title">Свяжитесь с Нами</h3>
+      <p><strong data-i18n="connection-support-label">Поддержка:</strong> <a href="mailto:support@btcaiwork.com">support@btcaiwork.com</a></p>
+      <p><strong data-i18n="connection-telegram-label">Telegram:</strong> <a href="https://t.me/btcaiwork">@BtcAIworK</a></p>
+      <p><strong data-i18n="connection-discord-label">Discord:</strong> <a href="https://discord.gg/btcaiwork">BtcAIworK Community</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <p data-i18n="footer-text">© 2025 BtcAIworK. Все права защищены.</p>
+  </footer>
+
+  <script>
+    // Симуляция проверки статуса серверов
+    function checkServerStatus() {
+      const statuses = {
+        'eu': 'Онлайн',
+        'us': 'Оффлайн',
+        'asia': 'Онлайн'
+      };
+      Object.keys(statuses).forEach(region => {
+        const statusEl = document.getElementById(`status-${region}`);
+        statusEl.textContent = statuses[region];
+        statusEl.className = statuses[region] === 'Онлайн' ? 'status-online' : 'status-offline';
+      });
+    }
+
+    // Копирование в буфер обмена
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Адрес скопирован в буфер обмена!');
+      });
+    }
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', () => {
+      checkServerStatus();
+      setInterval(checkServerStatus, 30000); // Проверка каждые 30 секунд
+      const activeMiners = document.getElementById('active-miners');
+      const lastUpdate = document.getElementById('last-update');
+      activeMiners.textContent = Math.floor(Math.random() * 200); // Случайное число для примера
+      lastUpdate.textContent = new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Yekaterinburg' });
+    });
+  </script>
+  <script src="./static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="nav-scripts">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./static/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="nav-scripts">Скрипты</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">
+      <a href="index.html">BtcAIworK</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="btn-nav" data-i18n="nav-index">Главная</a>
+      <a href="dashboard.html" class="btn-nav" data-i18n="nav-dashboard">Статистика</a>
+      <a href="Tokens.html" class="btn-nav" data-i18n="nav-tokens">Токены</a>
+      <a href="Login.html" class="btn-nav" data-i18n="nav-login">Вход</a>
+      <a href="Profile.html" class="btn-nav" data-i18n="nav-profile">Аккаунт</a>
+      <a href="scripts.html" class="btn-nav" data-i18n="nav-scripts">Скрипты</a>
+      <a href="Connection.html" class="btn-nav" data-i18n="nav-connection">Контакты</a>
+      <a href="Roadmap.html" class="btn-nav" data-i18n="nav-roadmap">Дорожная карта</a>
+      <button id="theme-toggle" class="btn-nav">🌓</button>
+      <button id="lang-btn" class="btn-nav">RU</button>
+    </div>
+  </nav>
+
+  <div id="notification" class="notification" data-i18n="notification-success">Скрипт успешно выполнен!</div>
+
+  <main class="container">
+    <h2 data-i18n="scripts-title">Скрипты</h2>
+    <p data-i18n="scripts-description">Управляйте скриптами для майнинга и анализа данных.</p>
+    <table id="script-table" class="script-table">
+      <thead>
+        <tr>
+          <th data-i18n="table-header-script">Скрипт</th>
+          <th data-i18n="table-header-description">Описание</th>
+          <th data-i18n="table-header-action">Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-i18n="script-extract-nonce">extract_nonce</td>
+          <td data-i18n="script-extract-nonce-desc">Извлекает текущий nonce из данных блока.</td>
+          <td><button class="btn-nav run-script" onclick="runScript('extract_nonce')">Запустить</button></td>
+        </tr>
+        <tr>
+          <td data-i18n="script-import-requests">import_requests</td>
+          <td data-i18n="script-import-requests-desc">Импортирует данные запросов для анализа.</td>
+          <td><button class="btn-nav run-script" onclick="runScript('import_requests')">Запустить</button></td>
+        </tr>
+        <tr>
+          <td data-i18n="script-make-full-block-node">make_full_block_node</td>
+          <td data-i18n="script-make-full-block-node-desc">Создаёт полную ноду блока для майнинга.</td>
+          <td><button class="btn-nav run-script" onclick="runScript('make_full_block_node')">Запустить</button></td>
+        </tr>
+        <tr>
+          <td data-i18n="script-predict-range">predict_range</td>
+          <td data-i18n="script-predict-range-desc">Предсказывает оптимальный диапазон nonce.</td>
+          <td><button class="btn-nav run-script" onclick="runScript('predict_range')">Запустить</button></td>
+        </tr>
+        <tr>
+          <td data-i18n="script-target">target</td>
+          <td data-i18n="script-target-desc">Определяет текущую цель сложности сети.</td>
+          <td><button class="btn-nav run-script" onclick="runScript('target')">Запустить</button></td>
+        </tr>
+        <tr>
+          <td data-i18n="script-train-ai">train_ai</td>
+          <td data-i18n="script-train-ai-desc">Обучает AI для оптимизации майнинга.</td>
+          <td><button class="btn-nav run-script" onclick="runScript('train_ai')">Запустить</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="output-section">
+      <h3 data-i18n="output-title">Вывод скрипта</h3>
+      <pre id="script-output" class="script-output" style="min-height: 200px; max-height: 400px; overflow-y: auto;"></pre>
+      <div class="output-controls">
+        <button id="clear-output" class="btn-nav" data-i18n="btn-clear-output">Очистить вывод</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p data-i18n="footer-text">© 2025 BtcAIworK. Все права защищены.</p>
+  </footer>
+
+  <script type="module" src="./static/js/script.js"></script>
+</body>
+</html>

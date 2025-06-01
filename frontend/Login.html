@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="login-title">Вход</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <style>
+        /* Контейнер для контента */
+        .content {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: var(--container-bg, #ffffff);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Стили для формы */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid var(--fg, #000000);
+            background-color: var(--container-bg, #ffffff);
+            color: var(--fg, #000000);
+        }
+
+        /* Кнопка входа */
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: var(--fg, #000000);
+            color: var(--bg, #ffffff);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--bg, #ffffff);
+            color: var(--fg, #000000);
+            border: 1px solid var(--fg, #000000);
+        }
+
+        /* Стили для навигации */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: var(--container-bg, #ffffff);
+        }
+
+        .nav-brand {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Стили для кнопок навигации */
+        .btn-nav {
+            padding: 6px 12px;
+            background-color: var(--fg, #000000);
+            color: var(--bg, #ffffff);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--bg, #ffffff);
+            color: var(--fg, #000000);
+            border: 1px solid var(--fg, #000000);
+        }
+
+        /* Кнопки переключения языка и темы */
+        .nav-controls button {
+            background-color: var(--fg, #000000);
+            color: var(--bg, #ffffff);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .nav-controls button:hover {
+            background-color: var(--bg, #ffffff);
+            color: var(--fg, #000000);
+            border: 1px solid var(--fg, #000000);
+        }
+
+        /* Обеспечение видимости в тёмной теме */
+        .dark-theme .btn-nav {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .dark-theme .btn-nav:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .dark-theme .content {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .dark-theme input {
+            background-color: #111;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .dark-theme button {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #fff;
+        }
+
+        .dark-theme button:hover {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .dark-theme .nav-controls button {
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #fff;
+        }
+
+        .dark-theme .nav-controls button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Ссылки */
+        a {
+            color: var(--fg, #000000);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .dark-theme a {
+            color: #fff;
+        }
+
+        /* Футер */
+        footer {
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <nav>
+        <div class="nav-brand">
+            <a href="./index.html" data-i18n="site-name">BtcAIworK</a>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="./index.html" class="btn-nav" data-i18n="nav-index">Главная</a>
+            <a href="./dashboard.html" class="btn-nav" data-i18n="nav-dashboard">Статистика</a>
+            <a href="./Tokens.html" class="btn-nav" data-i18n="nav-tokens">Купить токены</a>
+            <a href="./scripts.html" class="btn-nav" data-i18n="nav-scripts">Скрипты</a>
+            <a href="./Connection.html" class="btn-nav" data-i18n="nav-connection">Контакты</a>
+            <a href="./Roadmap.html" class="btn-nav" data-i18n="nav-roadmap">Дорожная карта</a>
+            <a href="./staking.html" class="btn-nav" data-i18n="nav-staking">Стейкинг</a>
+            <a href="./Profile.html" class="btn-nav" data-i18n="nav-account">Аккаунт</a>
+            <a href="./Login.html" class="btn-nav" data-i18n="nav-login">Вход</a>
+        </div>
+        <div class="nav-controls">
+            <button id="lang-btn">RU</button>
+            <button id="theme-toggle">🌙</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1 data-i18n="login-title">Вход</h1>
+        <form id="login-form">
+            <input
+                type="email"
+                id="email"
+                placeholder="Электронная почта"
+                data-i18n-placeholder="email-placeholder"
+            >
+            <input
+                type="password"
+                id="password"
+                placeholder="Пароль"
+                data-i18n-placeholder="password-placeholder"
+            >
+            <button type="submit" data-i18n="login-button">Войти</button>
+        </form>
+        <p>
+            <a href="#" data-i18n="forgot-password">Забыли пароль?</a>
+        </p>
+        <p>
+            <a href="./Register.html" data-i18n="register-link">Нет аккаунта? Зарегистрироваться</a>
+        </p>
+    </div>
+
+    <footer>
+        <p data-i18n="footer-text">© 2025 BTCAIworK. Все права защищены.</p>
+    </footer>
+
+    <script type="module" src="./static/js/script.js"></script>
+    <script type="module" src="../scripts/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+/* style.css - полностью переработанный */
+:root {
+  --primary-color: #1a73e8;
+  --primary-hover: #0d62c9;
+  --text-color: #333;
+  --text-light: #f8f9fa;
+  --bg-color: #ffffff;
+  --bg-dark: #121212;
+  --card-bg: #f8f9fa;
+  --card-bg-dark: #1e1e1e;
+  --border-color: #dee2e6;
+  --border-dark: #333;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --warning-color: #ffc107;
+  --transition: all 0.3s ease;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+  --font-main: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+/* Базовые стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  transition: var(--transition);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-theme {
+  color: var(--text-light);
+  background-color: var(--bg-dark);
+}
+
+/* Навигация */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.dark-theme nav {
+  background-color: var(--bg-dark);
+  border-bottom-color: var(--border-dark);
+}
+
+.nav-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-brand:hover {
+  opacity: 0.9;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.btn-nav {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: var(--transition);
+  font-family: var(--font-main);
+  border-radius: 4px;
+}
+
+.btn-nav:hover, .btn-nav.active {
+  color: var(--primary-color);
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+.dark-theme .btn-nav:hover,
+.dark-theme .btn-nav.active {
+  background-color: rgba(26, 115, 232, 0.2);
+}
+
+/* Основной контент */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.centered-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Стили для содержимого дорожной карты */
+.roadmap-content {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.roadmap-content p.indented {
+  margin-top: 1.5em;
+  text-indent: 2em;
+  line-height: 1.6;
+}
+
+.roadmap-content b {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.dark-theme .roadmap-content b {
+  color: var(--primary-hover);
+}
+
+.roadmap-content ul {
+  list-style-type: disc;
+  margin-left: 2em;
+  margin-bottom: 1.5rem;
+}
+
+.roadmap-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Карточки фич */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  min-width: 200px;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.dark-theme .feature-card {
+  border-color: var(--border-dark);
+  background-color: var(--card-bg-dark);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Кнопки */
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Подвал */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.dark-theme footer {
+  background-color: var(--bg-dark);
+  border-top-color: var(--border-dark);
+  color: var(--text-light);
+}
+
+/* Анимация фона */
+.bg-animated {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .btn-nav {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .roadmap-content p.indented {
+    text-indent: 1.5em;
+  }
+}
+
+/* Дополнительные стили для dashboard */
+.dashboard-container {
+  width: 100%;
+  padding: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.dark-theme .stat-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.stat-card span:first-child {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.status-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--success-color);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Формы */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: var(--font-main);
+  transition: var(--transition);
+}
+
+.dark-theme input,
+.dark-theme select,
+.dark-theme textarea {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-light);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+}
+
+/* Таблицы */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme th,
+.dark-theme td {
+  border-bottom-color: var(--border-dark);
+}
+
+th {
+  background-color: var(--card-bg);
+  font-weight: 600;
+}
+
+.dark-theme th {
+  background-color: var(--card-bg-dark);
+}
+
+/* Стили для таблиц скриптов */
+.script-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+}
+
+.script-table th, .script-table td {
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.dark-theme .script-table th,
+.dark-theme .script-table td {
+  border-color: var(--border-dark);
+}
+
+.script-table th {
+  background-color: var(--card-bg);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.dark-theme .script-table th {
+  background-color: var(--card-bg-dark);
+  color: var(--primary-hover);
+}
+
+.script-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.dark-theme .script-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.script-table tr:hover {
+  background-color: rgba(26, 115, 232, 0.05);
+}
+
+.dark-theme .script-table tr:hover {
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+/* Кнопки запуска скриптов */
+.run-script {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.run-script:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Секция вывода */
+.output-section {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.output-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.script-output {
+  margin-top: 10px;
+  padding: 15px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.dark-theme .script-output {
+  background: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.output-controls {
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Утилиты */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+
+/* Адаптивность для таблиц и вывода */
+@media (max-width: 768px) {
+  .script-table th, .script-table td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .run-script {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+
+  .script-output {
+    min-height: 150px;
+    max-height: 300px;
+    font-size: 0.8rem;
+  }
+
+  .output-section h3 {
+    font-size: 1.3rem;
+  }
+}

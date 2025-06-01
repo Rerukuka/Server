@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="home-title">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная - BtcAIworK</title>
+  <link rel="stylesheet" href="./static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://www.google.com/recaptcha/api.js?render=6LczFz4rAAAAAK1cTyEVi3lxr7USSENodyhGL-W_"></script>
+  <script type="module" src="./static/js/script.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">
+      <a href="index.html">BtcAIworK</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="btn-nav" data-i18n="nav-index">Главная</a>
+      <a href="dashboard.html" class="btn-nav" data-i18n="nav-dashboard">Статистика</a>
+      <a href="Tokens.html" class="btn-nav" data-i18n="nav-tokens">Купить токены</a>
+      <a href="Login.html" class="btn-nav" data-i18n="nav-login">Вход</a>
+      <a href="Profile.html" class="btn-nav" data-i18n="nav-profile">Аккаунт</a>
+      <a href="scripts.html" class="btn-nav" data-i18n="nav-scripts">Скрипты</a>
+      <a href="Connection.html" class="btn-nav" data-i18n="nav-connection">Контакты</a>
+      <a href="Roadmap.html" class="btn-nav" data-i18n="nav-roadmap">Дорожная карта</a>
+      <button id="theme-toggle" class="btn-nav">🌓</button>
+      <button id="lang-btn" class="btn-nav">RU</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h2 data-i18n="home-welcome">Добро пожаловать в BtcAIworK!</h2>
+    <p data-i18n="home-description">BtcAIworK — это инновационная платформа для майнинга криптовалют с использованием искусственного интеллекта. Мы предлагаем современные алгоритмы и удобный интерфейс для всех пользователей.</p>
+    <div class="features">
+      <div class="feature-card" data-i18n="home-feature1">AI-оптимизация майнинга</div>
+      <div class="feature-card" data-i18n="home-feature2">Прозрачная статистика</div>
+      <div class="feature-card" data-i18n="home-feature3">Высокая доходность</div>
+    </div>
+    <a href="Register.html" class="btn-nav" data-i18n="home-get-started" style="margin-top: 20px; display: block; text-align: center;">Начать сейчас</a>
+  </main>
+
+  <footer>
+    <p data-i18n="footer-text">© 2025 BtcAIworK. Все права защищены.</p>
+  </footer>
+
+  <canvas id="hashWave" class="bg-animated"></canvas>
+</body>
+</html>

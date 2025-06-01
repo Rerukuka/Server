@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="dashboard-title">Статистика майнинга</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span data-i18n="site-name">BTCAIwork</span>
+            </div>
+            <div class="nav-links">
+                <a href="./index.html" class="btn-nav" data-i18n="nav-index">Главная</a>
+                <a href="./dashboard.html" class="btn-nav active" data-i18n="nav-dashboard">Статистика</a>
+                <a href="./Tokens.html" class="btn-nav" data-i18n="nav-tokens">Купить токены</a>
+                <a href="./Roadmap.html" class="btn-nav" data-i18n="nav-roadmap">Дорожная карта</a>
+                <a href="./Connection.html" class="btn-nav" data-i18n="nav-connection">Связь</a>
+                <a href="./Login.html" class="btn-nav" data-i18n="nav-login">Вход</a>
+                <a href="./Profile.html" class="btn-nav" data-i18n="nav-profile" style="display: none;">Аккаунт</a>
+                <a href="./scripts.html" class="btn-nav" data-i18n="nav-scripts">Скрипты</a>
+                <button id="lang-btn" class="btn-nav">RU</button>
+                <button id="theme-toggle" class="btn-nav">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard-container">
+            <h1 data-i18n="dashboard-title">Статистика майнинга</h1>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span data-i18n="miners-label">Количество майнеров:</span>
+                    <span class="status-wrapper">
+                        <span class="status-dot"></span>
+                        <span id="miners-count">-</span>
+                    </span>
+                </div>
+                <div class="stat-card">
+                    <span data-i18n="current-block-label">Текущий блок:</span>
+                    <span class="status-wrapper">
+                        <span class="status-dot"></span>
+                        <span id="current-block">-</span>
+                    </span>
+                </div>
+                <div class="stat-card">
+                    <span data-i18n="hashrate-label">Хэшрейт:</span>
+                    <span class="status-wrapper">
+                        <span class="status-dot"></span>
+                        <span id="hashrate">-</span>
+                    </span>
+                </div>
+                <div class="stat-card">
+                    <span data-i18n="best-share-label">Лучший шар:</span>
+                    <span class="status-wrapper">
+                        <span class="status-dot"></span>
+                        <span id="best-share">-</span>
+                    </span>
+                </div>
+                <div class="stat-card">
+                    <span data-i18n="blocks-found-label">Найдено блоков:</span>
+                    <span class="status-wrapper">
+                        <span class="status-dot"></span>
+                        <span id="blocks-found">-</span>
+                    </span>
+                </div>
+                <div class="stat-card">
+                    <span data-i18n="uptime-label">Время работы:</span>
+                    <span class="status-wrapper">
+                        <span class="status-dot"></span>
+                        <span id="uptime">-</span>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-i18n="footer-text">© 2025 BTCAIworK. Все права защищены.</p>
+    </footer>
+
+    <script type="module" src="./static/js/script.js"></script>
+</body>
+</html>

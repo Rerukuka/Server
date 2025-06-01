@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru" data-i18n-title="nav-tokens">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Купить Токены</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    .container {
+      flex: 1;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 2rem; /* Aligned with dashboard-container in style.css */
+      overflow: hidden;
+      text-align: center; /* Aligned with dashboard-container in style.css */
+    }
+
+    /* ============ Main Content ============ */
+    .token-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Aligned with stats-grid in style.css */
+      gap: 1rem; /* Aligned with stats-grid in style.css */
+      justify-items: center;
+      margin-bottom: 30px;
+    }
+
+    .token-card {
+      flex: 1;
+      max-width: 300px;
+      padding: 1rem; /* Aligned with stat-card in style.css */
+      border: 1px solid var(--fg); /* Use theme foreground for borders */
+      border-radius: 0; /* Aligned with stat-card in style.css */
+      text-align: left; /* Aligned with stat-card in style.css */
+      background-color: var(--bg); /* Match body background */
+    }
+
+    .token-card h3 {
+      margin-bottom: 0.2rem; /* Aligned with stat-card in style.css */
+      font-size: 0.9rem; /* Aligned with stat-card in style.css */
+      font-weight: bold; /* Aligned with stat-card in style.css */
+    }
+
+    .token-card p {
+      font-size: 1rem; /* Aligned with stat-card in style.css */
+      margin: 0;
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    .token-form {
+      margin: 0 auto;
+      max-width: 500px;
+      padding: 1rem; /* Aligned with stat-card in style.css */
+      border: 1px solid var(--fg); /* Use theme foreground for borders */
+      border-radius: 0; /* Aligned with stat-card in style.css */
+      background-color: var(--bg); /* Match body background */
+    }
+
+    .token-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    .token-form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid var(--fg); /* Use theme foreground for borders */
+      border-radius: 0; /* Aligned with stat-card in style.css */
+      background-color: var(--bg); /* Match body background */
+      color: var(--fg);
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    .token-form input:focus {
+      border-color: var(--fg);
+      outline: none;
+    }
+
+    .token-form button {
+      width: 100%;
+      padding: 0.5rem 1rem; /* Aligned with btn-nav in style.css */
+      font-size: 1rem; /* Aligned with btn-nav in style.css */
+      color: var(--fg);
+      background: none;
+      border: none; /* Aligned with btn-nav in style.css */
+      border: 1px solid var(--fg); /* Use theme foreground for borders */
+      border-radius: 0; /* Aligned with stat-card in style.css */
+      cursor: pointer;
+      transition: background-color var(--transition-time), color var(--transition-time);
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    .token-form button:hover {
+      text-decoration: underline; /* Aligned with btn-nav hover in style.css */
+    }
+
+    /* ============ Notification ============ */
+    .notification {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: var(--status-green);
+      color: #ffffff; /* White text for visibility on green background */
+      border-radius: 0; /* Aligned with stat-card in style.css */
+      display: none;
+      z-index: 1000;
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    /* ============ Transaction Table ============ */
+    .transaction-table {
+      margin-top: 30px;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .transaction-table th,
+    .transaction-table td {
+      padding: 10px;
+      border: 1px solid var(--fg); /* Use theme foreground for borders */
+      text-align: left;
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    .transaction-table th {
+      background-color: var(--bg);
+      font-weight: 600;
+    }
+
+    .transaction-table td {
+      background-color: var(--bg);
+    }
+
+    .transaction-controls {
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    .btn-clear {
+      padding: 0.5rem 1rem; /* Aligned with btn-nav in style.css */
+      font-size: 1rem; /* Aligned with btn-nav in style.css */
+      color: var(--fg);
+      background: none;
+      border: none; /* Aligned with btn-nav in style.css */
+      border: 1px solid var(--fg); /* Use theme foreground for borders */
+      border-radius: 0; /* Aligned with stat-card in style.css */
+      cursor: pointer;
+      transition: background-color var(--transition-time), color var(--transition-time);
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    .btn-clear:hover {
+      text-decoration: underline; /* Aligned with btn-nav hover in style.css */
+    }
+
+    /* ============ Market Stats ============ */
+    .market-stats {
+      margin-top: 30px;
+      padding: 1rem; /* Aligned with stat-card in style.css */
+      border: 1px solid var(--fg); /* Use theme foreground for borders */
+      border-radius: 0; /* Aligned with stat-card in style.css */
+      background-color: var(--bg); /* Match body background */
+      text-align: left; /* Aligned with stat-card in style.css */
+    }
+
+    .market-stats h3 {
+      margin-bottom: 0.2rem; /* Aligned with stat-card in style.css */
+      font-size: 0.9rem; /* Aligned with stat-card in style.css */
+      font-weight: bold; /* Aligned with stat-card in style.css */
+    }
+
+    .market-stats p {
+      margin: 5px 0;
+      font-size: 1rem; /* Aligned with stat-card in style.css */
+      font-family: 'Courier New', monospace; /* Aligned with style.css */
+    }
+
+    /* ============ Responsive Design ============ */
+    @media (max-width: 768px) {
+      .token-info {
+        grid-template-columns: 1fr; /* Aligned with stats-grid in style.css */
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">
+      <a href="index.html">BtcAIworK</a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="btn-nav" data-i18n="nav-index">Главная</a>
+      <a href="dashboard.html" class="btn-nav" data-i18n="nav-dashboard">Статистика</a>
+      <a href="Tokens.html" class="btn-nav" data-i18n="nav-tokens">Купить токены</a>
+      <a href="Login.html" class="btn-nav" data-i18n="nav-login">Вход</a>
+      <a href="Profile.html" class="btn-nav" data-i18n="nav-profile">Аккаунт</a>
+      <a href="scripts.html" class="btn-nav" data-i18n="nav-scripts">Скрипты</a>
+      <a href="Connection.html" class="btn-nav" data-i18n="nav-connection">Контакты</a>
+      <a href="Roadmap.html" class="btn-nav" data-i18n="nav-roadmap">Дорожная карта</a>
+      <button id="theme-toggle" class="btn-nav">🌙</button>
+      <button id="lang-btn" class="btn-nav">RU</button>
+    </div>
+  </nav>
+
+  <div id="notification" class="notification" data-i18n="notification-success">Токены успешно куплены!</div>
+
+  <main class="container">
+    <h2 data-i18n="main-title">Купить Токены</h2>
+    <p data-i18n="main-description">Приобретайте токены BtcAIworK для участия в нашей экосистеме.</p>
+
+    <div class="token-info">
+      <div class="token-card">
+        <h3 data-i18n="token-price-title">Текущая цена</h3>
+        <p id="token-price" data-i18n="token-price-value">0.001 BTC за токен</p>
+      </div>
+      <div class="token-card">
+        <h3 data-i18n="token-available-title">Доступно токенов</h3>
+        <p id="token-available">10,000,000</p>
+      </div>
+      <div class="token-card">
+        <h3 data-i18n="token-balance-title">Ваши токены</h3>
+        <p id="token-balance">0</p>
+      </div>
+    </div>
+
+    <div class="token-form">
+      <form id="buy-form">
+        <label for="wallet" data-i18n="label-wallet">Адрес кошелька</label>
+        <input type="text" id="wallet" required data-i18n-placeholder="wallet-placeholder">
+        <label for="amount" data-i18n="label-amount">Количество токенов</label>
+        <input type="number" id="amount" min="1" value="10" required>
+        <button type="submit" class="btn-nav" data-i18n="btn-buy-tokens">Купить токены</button>
+      </form>
+    </div>
+
+    <div class="market-stats">
+      <h3 data-i18n="market-stats-title">Статистика токенов</h3>
+      <p><span data-i18n="total-sold-label">Всего продано:</span> <span id="total-sold">0</span></p>
+      <p><span data-i18n="market-cap-label">Рыночная капитализация:</span> <span id="market-cap">0 BTC</span></p>
+    </div>
+
+    <div class="transaction-history">
+      <h3 data-i18n="transaction-title">История транзакций</h3>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th data-i18n="table-date">Дата</th>
+            <th data-i18n="table-wallet">Кошелек</th>
+            <th data-i18n="table-amount">Количество</th>
+            <th data-i18n="table-sum">Сумма (BTC)</th>
+            <th data-i18n="table-status">Статус</th>
+          </tr>
+        </thead>
+        <tbody id="transaction-body">
+          <!-- Транзакции будут добавлены через JavaScript -->
+        </tbody>
+      </table>
+      <div class="transaction-controls">
+        <button id="clear-transactions" class="btn-clear" data-i18n="btn-clear-history">Очистить историю</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p data-i18n="footer-text">© 2025 BtcAIworK. Все права защищены.</p>
+  </footer>
+
+  <script type="module" src="../static/js/script.js"></script>
+  <script>
+    // Инициализация данных
+    let availableTokens = 10000000;
+    let userBalance = 0;
+    let totalSold = 0;
+    const tokenPrice = 0.001; // Цена за токен в BTC
+
+    // Элементы DOM
+    const buyForm = document.getElementById('buy-form');
+    const transactionBody = document.getElementById('transaction-body');
+    const tokenAvailableEl = document.getElementById('token-available');
+    const tokenBalanceEl = document.getElementById('token-balance');
+    const totalSoldEl = document.getElementById('total-sold');
+    const marketCapEl = document.getElementById('market-cap');
+    const notificationEl = document.getElementById('notification');
+    const clearTransactionsBtn = document.getElementById('clear-transactions');
+
+    // Функция для форматирования чисел
+    function formatNumber(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // Обновление отображаемых данных
+    function updateStats() {
+      tokenAvailableEl.textContent = formatNumber(availableTokens);
+      tokenBalanceEl.textContent = formatNumber(userBalance);
+      totalSoldEl.textContent = formatNumber(totalSold);
+      marketCapEl.textContent = (totalSold * tokenPrice).toFixed(4);
+    }
+
+    // Показ уведомления
+    function showNotification() {
+      notificationEl.style.display = 'block';
+      setTimeout(() => {
+        notificationEl.style.display = 'none';
+      }, 3000);
+    }
+
+    // Загрузка сохранённых транзакций из localStorage
+    function loadTransactions() {
+      const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+      transactions.forEach(tx => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${tx.date}</td>
+          <td>${tx.wallet}</td>
+          <td>${tx.amount}</td>
+          <td>${tx.sum}</td>
+          <td>${tx.status}</td>
+        `;
+        transactionBody.appendChild(row);
+      });
+      // Восстановление статистики
+      userBalance = parseInt(localStorage.getItem('userBalance')) || 0;
+      totalSold = parseInt(localStorage.getItem('totalSold')) || 0;
+      availableTokens = 10000000 - totalSold;
+      updateStats();
+    }
+
+    // Сохранение транзакций в localStorage
+    function saveTransaction(tx) {
+      const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+      transactions.unshift(tx);
+      localStorage.setItem('transactions', JSON.stringify(transactions));
+      localStorage.setItem('userBalance', userBalance);
+      localStorage.setItem('totalSold', totalSold);
+    }
+
+    // Обработка покупки токенов
+    buyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const wallet = document.getElementById('wallet').value;
+      const amount = parseInt(document.getElementById('amount').value);
+
+      if (amount > availableTokens) {
+        alert(translations[localStorage.getItem('language') || 'ru']['alert-insufficient-tokens']);
+        return;
+      }
+
+      const date = new Date().toLocaleString();
+      const price = (amount * tokenPrice).toFixed(4);
+      const lang = localStorage.getItem('language') || 'ru';
+      const status = translations[lang]['status-completed'] || 'Completed';
+
+      // Обновление статистики
+      availableTokens -= amount;
+      userBalance += amount;
+      totalSold += amount;
+      updateStats();
+
+      // Добавление транзакции
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${date}</td>
+        <td>${wallet}</td>
+        <td>${amount}</td>
+        <td>${price}</td>
+        <td>${status}</td>
+      `;
+      transactionBody.prepend(row);
+
+      // Сохранение транзакции
+      saveTransaction({ date, wallet, amount, sum: price, status });
+
+      // Показ уведомления
+      showNotification();
+
+      // Очистка формы
+      buyForm.reset();
+      document.getElementById('amount').value = 10;
+    });
+
+    // Очистка истории транзакций
+    clearTransactionsBtn.addEventListener('click', () => {
+      transactionBody.innerHTML = '';
+      localStorage.removeItem('transactions');
+      localStorage.removeItem('userBalance');
+      localStorage.removeItem('totalSold');
+      availableTokens = 10000000;
+      userBalance = 0;
+      totalSold = 0;
+      updateStats();
+    });
+
+    // Загрузка транзакций при загрузке страницы
+    document.addEventListener('DOMContentLoaded', loadTransactions);
+  </script>
+</body>
+</html>
